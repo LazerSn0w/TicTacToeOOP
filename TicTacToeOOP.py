@@ -3,7 +3,7 @@ import random
 
 class gameBoard(object):
     def __init__(self):
-        self.board=[" "]*10
+        self.board=[" "]*9
     def drawboard(self):
         print('   |   |')
         print(' ' + self.board[7] + ' | ' + self.board[8] + ' | ' + self.board[9])
