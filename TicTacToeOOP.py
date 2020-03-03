@@ -1,17 +1,6 @@
 import random
 
 
-def choosePlayer():
-    """
-    :return: List of random permutation of X and O
-    """
-    if random.randint(0, 1) == 1:
-        print('Player 1 is X and Player 2 is O')
-        return ['X', 'O']
-    print('Player 1 is O and Player 2 is X')
-    return ['O', 'X']
-
-
 class gameBoard(object):
     def __init__(self):
         """
@@ -34,6 +23,16 @@ class gameBoard(object):
         print('   |   |')
         print(' ' + self.board[0] + ' | ' + self.board[1] + ' | ' + self.board[2])
         print('   |   |')
+
+    def choosePlayer(self):
+        """
+        :return: List of random permutation of X and O
+        """
+        if random.randint(0, 1) == 1:
+            print('Player 1 is X and Player 2 is O')
+            return ['X', 'O']
+        print('Player 1 is O and Player 2 is X')
+        return ['O', 'X']
 
     def chooseStarter(self):
         """
