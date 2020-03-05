@@ -1,13 +1,10 @@
 import random
-
-
 class gameBoard(object):
     def __init__(self):
         """
         Initialize board
         """
         self.board = [' '] * 9
-
     def drawBoard(self):
         """
         Function that draws board
@@ -23,7 +20,6 @@ class gameBoard(object):
         print('   |   |')
         print(' ' + self.board[0] + ' | ' + self.board[1] + ' | ' + self.board[2])
         print('   |   |')
-
     def choosePlayer(self):
         """
         :return: List of random permutation of X and O
@@ -33,7 +29,6 @@ class gameBoard(object):
             return ['X', 'O']
         print('Player 1 is O and Player 2 is X')
         return ['O', 'X']
-
     def chooseStarter(self):
         """
         :return: Randomly returns either Player 1 or Player 2
@@ -41,7 +36,6 @@ class gameBoard(object):
         if random.randint(0, 1) == 1:
             return "Player 1"
         return "Player 2"
-
     def getPlayerMove(self):
         """
         :return: Player's move
@@ -52,7 +46,6 @@ class gameBoard(object):
             playerMove = int(input())
         if 8 >= playerMove >= 0:
             return playerMove
-
     def playerMove(self, playerValue, move):
         """
         :param playerValue: Player's value (X or O)
@@ -65,8 +58,8 @@ class gameBoard(object):
                 self.board[move] = playerValue
                 madeMove = True
             else:
-                print("This cell is already occupied, please select a different cell")
-
+                print("This cell is already occupied, your turn will be skipped.")
+                break
     def isWinner(self, playerValue):
         """
         Checks for all 3 in a row combinations
@@ -80,7 +73,6 @@ class gameBoard(object):
                 (self.board[8] == playerValue and self.board[5] == playerValue and self.board[2] == playerValue) or
                 (self.board[6] == playerValue and self.board[4] == playerValue and self.board[2] == playerValue) or
                 (self.board[8] == playerValue and self.board[4] == playerValue and self.board[0] == playerValue))
-
     def boardFull(self):
         """
         Checks if all cells are used up
@@ -93,23 +85,21 @@ class gameBoard(object):
             if cellsUsed == 9:
                 return True
         return False
-
     def boardReset(self):
         """
         Resets board to original state
         """
         self.board = [" "] * 9
-
     def playAgain(self):
         """
         Asks user whether they want to play again
         :return: Returns True if yes
         """
+        x = input('Do you wan to play again? Type "Y" ')
         x = input('Do you want to play again? Type "Y" ')
         if x == "Y":
             return True
         return False
-
     def rules(self):
         """
         Asks player whether they want to see the rules
@@ -135,8 +125,6 @@ class gameBoard(object):
             print('   |   |')
             print(' ' + '0' + ' | ' + '1' + ' | ' + '2')
             print('   |   |')
-
-
 print('Welcome to Tic Tac Toe')
 board = gameBoard()
 while True:
@@ -163,14 +151,12 @@ while True:
                     break
                 else:
                     turn = 'Player 2'
-
         if turn == 'Player 2':
             print()
             print('Player 2 turn')
             board.drawBoard()
             move = board.getPlayerMove()
             board.playerMove(player2, move)
-
             if board.isWinner(player2):
                 board.drawBoard()
                 print('Hooray! Player 2 has won!')
