@@ -142,7 +142,7 @@ board = gameBoard()
 while True:
     board.boardReset()
     board.rules()
-    player1, player2 = choosePlayer()
+    player1, player2 = board.choosePlayer()
     turn = board.chooseStarter
     game = True
     while game:
