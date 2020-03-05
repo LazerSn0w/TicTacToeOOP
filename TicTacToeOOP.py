@@ -105,7 +105,7 @@ class gameBoard(object):
         Asks user whether they want to play again
         :return: Returns True if yes
         """
-        x = input('Do you wan to play again? Type "Y" ')
+        x = input('Do you want to play again? Type "Y" ')
         if x == "Y":
             return True
         return False
